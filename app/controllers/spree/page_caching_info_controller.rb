@@ -1,5 +1,5 @@
 module Spree
-  class PageCachingInfoController < Spree::BaseController
+  class PageCachingInfoController < Spree::StoreController
     ssl_allowed
 
     respond_to :json
