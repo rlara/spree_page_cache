@@ -1,0 +1,9 @@
+<% current_order.line_items.each do |item| %>
+				<li class="articulos">
+						<%= link_to "", "/cart?order[line_items_attributes][0][id]=#{item.id}&order[line_items_attributes][0][quantity]=0", :remote => false, :method => :put, :class => 'remove icon-remove-sign' %>
+            <span><%= item.quantity %></span>
+            <%= link_to item.variant.product.name, product_path(item.variant.product), :class => "p-link", :name => "name" %>
+            <strong><%= item.price  %></strong>
+            <div class="clearfix"></div>
+          </li>
+      <% end %>

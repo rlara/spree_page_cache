@@ -6,17 +6,21 @@ App.updateCartAmount = function(value) {
   }
 };
 
+App.updatePreviewCart = function(value) {
+  if (value) {
+    $('#cart-dropdown').html(value);
+  }
+};
+
 App.updateAccountStatusBar = function(value) {
   if(App.isNumeric(value)){
-    $('#user-logout').show();
-    $('#with-account-paths').show();
-    $('#user-login').hide();
-    $('#without-account-paths').hide();
+    $('#nav-bar li.logout').show();
+    $('#nav-bar li.account').show();
+    $('#nav-bar li.login').hide();
   } else {
-    $('#user-logout').hide();
-    $('#with-account-paths').hide();
-    $('#user-login').show();
-    $('#without-account-paths').show();
+    $('#nav-bar li.login').show();
+    $('#nav-bar li.logout').hide();
+    $('#nav-bar li.account').hide();
   }
 };
 
@@ -49,6 +53,7 @@ $(function(){
       dataType: 'json',
       success: function(data){
         App.updateCartAmount(decodeURIComponent(data.cart_summary));
+        App.updatePreviewCart(decodeURIComponent(data.preview_cart_summary));
         App.updateAccountStatusBar(data.current_user_id);
         App.updateAuthToken(data.authenticity_token);
         App.customMethod(data);

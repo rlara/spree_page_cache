@@ -13,6 +13,12 @@ Deface::Override.new(:virtual_path => "spree/shared/_nav_bar",
 
 Deface::Override.new(:virtual_path => "spree/shared/_store_menu",
                      :name => "cart_shared_login_bar",
+                     :replace => "[data-hook='preview-cart']",
+                     :partial => "spree/shared/preview_cart",
+                     :disabled => false)
+
+Deface::Override.new(:virtual_path => "spree/shared/_store_menu",
+                     :name => "cart_shared_login_bar",
                      :replace => "[data-hook='link-to-cart'], #link-to-cart[data-hook]",
                      :partial => "spree/shared/cart_bar",
                      :disabled => false)
