@@ -8,7 +8,7 @@ App.updateCartAmount = function(value) {
 
 App.updatePreviewCart = function(value) {
   if (value) {
-    $('#cart-dropdown').html(value);
+    $('#cart-preview').html(value);
   }
 };
 

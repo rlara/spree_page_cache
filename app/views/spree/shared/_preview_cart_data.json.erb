@@ -1,1 +1,25 @@
-<%= render :partial => "spree/shared/preview_cart", :locals => {:current_order=> current_order} %>
+
+
+        <% if current_order %>
+          <span class="cart-count"><a href="/cart"><%= current_order.item_count %></a></span>
+          <a href="/cart" class="icon-header">Carrito</a>
+
+          <ul id="cart-dropdown" class="header-submenu" data-hook="preview-cart">
+          <% current_order.line_items.each do |item| %>
+                  <li class="articulos">
+                      <%= link_to "", "/cart?order[line_items_attributes][0][id]=#{item.id}&order[line_items_attributes][0][quantity]=0", :remote => false, :method => :put, :class => 'remove icon-remove-sign' %>
+                      <span><%= item.quantity %></span>
+                      <%= link_to item.variant.product.name, product_path(item.variant.product), :class => "p-link", :name => "name" %>
+                      <strong><%= item.price  %></strong>
+                      <div class="clearfix"></div>
+                    </li>
+                <% end %>
+            <li class="total last">
+            Subtotal del Pedido: <%= current_order.display_total%>
+          <div class="check"> <%= link_to t(:checkout), checkout_path %></div>
+          </li>
+        </ul>
+        <% else %>
+        <span class="cart-count"><a href="/cart">0</a></span>
+        <a href="/cart" class="icon-header">Carrito</a></span>
+        <%end%>
