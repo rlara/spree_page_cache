@@ -5,7 +5,7 @@ module Spree
     def after_save(taxon)
       expire_page "/"
       expire_page products_path
-      FileUtils.rm_rf "#{page_cache_directory}/products"
+      expire_action(:controller => 'products', :action => :index)
       FileUtils.rm_rf "#{page_cache_directory}/t"
       FileUtils.rm_rf "#{page_cache_directory}/taxons"
     end
