@@ -14,13 +14,15 @@ App.updatePreviewCart = function(value) {
 
 App.updateAccountStatusBar = function(value) {
   if(App.isNumeric(value)){
-    $('#nav-bar li.logout').show();
-    $('#nav-bar li.account').show();
-    $('#nav-bar li.login').hide();
+    $('#user-logout').show();
+    $('#with-account-paths').show();
+    $('#user-login').hide();
+    $('#without-account-paths').hide();
   } else {
-    $('#nav-bar li.login').show();
-    $('#nav-bar li.logout').hide();
-    $('#nav-bar li.account').hide();
+    $('#user-logout').hide();
+    $('#with-account-paths').hide();
+    $('#user-login').show();
+    $('#without-account-paths').show();
   }
 };
 
