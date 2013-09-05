@@ -1,0 +1,13 @@
+<span id='with-account-paths' style='display:none'>
+  <li class="account"><%= link_to "Cuenta", account_path, :class =>"icon-header" %>
+  <ul id="account-dropdown" class="header-submenu">
+    <li><%= link_to "Información de cuenta", account_path, :class => "icon-user" %></li>
+    <li><%= link_to "Direcciones", mis_direcciones_path, :class => "icon-book" %></li>
+    <li><%= link_to "Cerrar sesión", destroy_user_session_path, :class => "icon-remove" %></li>
+  </ul>
+  </li>
+</span>
+
+<span id='without-account-paths' style='display:none'>
+  <li class="account"><%= link_to "Cuenta", account_path, :class =>"icon-header" %></li>
+</span>
