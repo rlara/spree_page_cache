@@ -8,17 +8,22 @@ App.fromCookie =  {
 
   updateDom: function(){
     var currentUserId = $.cookie('current_user_id'),
-      cartAmount = decodeURIComponent($.cookie('cart_amount'));
+      cartPreview = decodeURIComponent($.cookie('preview_cart'));
 
     if(App.isNumeric(currentUserId)){
-      $('#nav-bar li.logout').show();
-      $('#nav-bar li.account').show();
+      $('#user-logout').show();
+      $('#with-account-paths').show();
+      $('#user-login').hide();
+      $('#without-account-paths').hide();
     } else {
-      $('#nav-bar li.login').show();
+      $('#user-logout').hide();
+      $('#with-account-paths').hide();
+      $('#user-login').show();
+      $('#without-account-paths').show();
     }
 
-    $('#link-to-cart').html(cartAmount).show();
-
+    if (cartPreview)
+      $('#cart-dropdown').html(cartPreview);
   }
 };
 
