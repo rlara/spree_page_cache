@@ -7,6 +7,7 @@ module Spree
       expire_page products_path
       expire_page "/"
       FileUtils.rm_rf "#{page_cache_directory}/t"
+      FileUtils.rm_rf "#{page_cache_directory}/taxons"
     end
   end
 end
