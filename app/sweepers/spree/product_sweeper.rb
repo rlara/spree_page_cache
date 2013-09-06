@@ -9,6 +9,7 @@ module Spree
       expire_action(:controller => 'products', :action => :index)
       FileUtils.rm_rf "#{page_cache_directory}/t"
       FileUtils.rm_rf "#{page_cache_directory}/taxons"
+      FileUtils.rm_rf "#{page_cache_directory}/index.html"
     end
   end
 end
