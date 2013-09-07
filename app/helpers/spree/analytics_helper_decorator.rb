@@ -1,7 +1,7 @@
 module Spree
   AnalyticsHelper.module_eval do
     def completed_analytics_tags
-      commerce_tracking_present = JSON.parse(flash[:commerce_tracking]) rescue false
+      commerce_tracking_present = flash[:commerce_tracking] rescue false
 
       return {} unless commerce_tracking_present && @order && @order.complete?
       { :confirm => { :orderid => @order.number,
