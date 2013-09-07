@@ -10,10 +10,12 @@ $(function() {
     if(flash.error){
       $('div.flash.error').html(flash.error.replace(/\+/g," ")).show();
     }
-
-    $.cookie('flash', '{}', { path: '/' });
-    $.cookie('flash', '{}');
-    $.cookie('flash', null);
+    
+    if(!flash.commerce_tracking) {
+      $.cookie('flash', '{}', { path: '/' });
+      $.cookie('flash', '{}');
+      $.cookie('flash', null);
+    }
   }
 });
 
