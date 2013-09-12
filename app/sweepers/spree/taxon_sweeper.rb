@@ -5,7 +5,7 @@ module Spree
     def after_save(taxon)
       expire_page "/"
       expire_page products_path
-      expire_fragment(%r{products.*})
+      #expire_fragment(%r{products.*})
       expire_action(:controller => 'products', :action => :index)
       expire_fragment('taxon_items_header')
       expire_fragment('taxon_items_footer')
