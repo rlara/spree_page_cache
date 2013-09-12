@@ -8,6 +8,7 @@ module Spree
       expire_page "/"
       expire_action(:controller => 'products', :action => :index)
       expire_fragment(%r{taxons/*})
+      expire_fragment(%r{products.*})
 
       FileUtils.rm_rf "#{page_cache_directory}/index.html"
     end
