@@ -3,7 +3,6 @@ module Spree
     observe Taxonomy
 
     def after_save(taxonomy)
-      binding.pry
       expire_page "/"
       expire_page products_path
       expire_fragment(%r{products.*})
@@ -15,7 +14,6 @@ module Spree
     end
 
     def after_update_positions(taxonomy)
-      binding.pry
       expire_page "/"
       expire_page products_path
       expire_fragment(%r{products.*})
