@@ -1,7 +1,7 @@
 $(function() {
 
   var flash = JSON.parse($.cookie('flash'));
-
+  alert("Hola mundo");
   if(flash){
     if(flash.notice){
       $('div.flash.notice').html(flash.notice.replace(/\+/g," ")).show();
