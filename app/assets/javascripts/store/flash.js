@@ -12,9 +12,13 @@ $(function() {
     }
     
     if(!flash.commerce_tracking) {
+      if(flash.error){
+        
+      }else{
       $.cookie('flash', '{}', { path: '/' });
       $.cookie('flash', '{}');
       $.cookie('flash', null);
+      }
     }
   }
 });
